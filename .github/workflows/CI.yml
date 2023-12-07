@@ -33,7 +33,7 @@ jobs:
          echo "${{ secrets.SSH_PRIVATE_KEY }}" >  ~/.ssh/ssh_key
          chmod 600 ~/.ssh/ssh_key
          ssh-add ~/.ssh/ssh_key
-        export GIT_SSH_COMMAND="ssh -i ~/.ssh/ssh_key"
+         export GIT_SSH_COMMAND="ssh -i ~/.ssh/ssh_key"
       - name: Deploy
         run:  
           scp -r build said@51.178.30.100:/home/said
