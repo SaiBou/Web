@@ -36,5 +36,5 @@ jobs:
          export GIT_SSH_COMMAND="ssh -i ~/.ssh/ssh_key"
       - name: Deploy
         run:  
-          scp -r build said@51.178.30.100:/home/said
+          scp -o StrictHostKeyChecking=no -r build said@51.178.30.100:/home/said
 
