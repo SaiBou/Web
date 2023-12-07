@@ -26,9 +26,10 @@ jobs:
 
       - name: Test
         run: npm test
-- name: Deploy
-  run: |
-    scp -r -i ${{ secrets.SSH_PRIVATE_KEY }} build/* said@51.178.30.100:/path/to/destination
-  env:
-    SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      - name: Deploy
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+         scp -r -i ${{ secrets.SSH_PRIVATE_KEY }} build/* said@51.178.30.100:/path/to/destination
+      
 
