@@ -35,5 +35,5 @@ jobs:
          ssh-add ~/.ssh/ssh_key
       - name: Deploy
         run:  
-         scp -r ${{ secrets.SSH_PRIVATE_KEY }} build said@51.178.30.100:/home/said
+         scp -r -i ${{ secrets.SSH_PRIVATE_KEY }} build said@51.178.30.100:/home/said
 
