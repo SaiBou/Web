@@ -27,8 +27,9 @@ jobs:
       - name: Test
         run: npm test
       - name: Deploy
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
-         scp -r -i ${{ secrets.SSH_PRIVATE_KEY }} build said@51.178.30.100:/home/said
+         mkdir -p ~/.ssh
+         echo ${{ secrets.SSH_PRIVATE_KEY }} >  ~/.ssh/ssh_key
+         ssh-add ~/.ssh/ssh_key
+         scp -r ${{ secrets.SSH_PRIVATE_KEY }} build said@51.178.30.100:/home/said
 
