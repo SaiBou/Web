@@ -28,6 +28,7 @@ jobs:
         run: npm test
       - name: Init SSHKEY
         run: |
+         eval `ssh-agent -s`
          mkdir -p ~/.ssh
          echo "${{ secrets.SSH_PRIVATE_KEY }}" >  ~/.ssh/ssh_key
          chmod 600 ~/.ssh/ssh_key
